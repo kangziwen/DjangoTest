@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>迭代</title>
+</head>
+<body>
+<div style="">模板测试迭代列表</div>
+{% for l in iter_list %}
+    <ul>
+    {% if l.name == 'kzw' %}
+    <li> name:{{ l.name }} age : {{ l.age }}</li>
+    {% else %}
+    <li style="color: red;background-color: aqua"> name:{{ l.name }} age : {{ l.age }}</li>
+    {% endif %}
+    </ul>
+
+{% endfor %}
+{# 直接取值#}
+<div>list : {{iter_list.1.name }}</div>
+<div>迭代字典</div>
+{% for k,v  in iter_dic.items %}
+    <ul>
+    <li>{{ k  }} : {{ v }}</li>
+    </ul>
+
+{% endfor %}
+{# 直接取值#}
+<div>key:{{iter_dic.key1  }}</div>
+<div>字典套字典</div>
+{% for k,v in dictodic.items %}
+    <ul>
+        <li>{{ k }}:{{ v.name }},{{ v.email }},{{ v.age }}</li>
+    </ul>
+
+{% endfor %}
+
+
+
+</body>
+</html>

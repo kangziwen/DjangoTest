@@ -23,6 +23,11 @@ urlpatterns = [
     url(r'^home',views.home),
     url(r'^del',views.kdelete),
     url(r'^upload',views.upload),
-    url(r'^leihome',views.Home.as_view())
+    url(r'^leihome',views.Home.as_view()),
+    url(r'^iter',views.iter),
+    # 正则匹配
+    url(r'^detail-(\d+)-(\d+).html',views.detail),
+
+    url(r'^detailn-(?P<nid>\d+)-(?P<uid>\d+).html',views.detailn)
 
 ]

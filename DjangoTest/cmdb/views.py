@@ -65,7 +65,7 @@ def kdelete(request):
     print("USER_LIST ",USER_LIST)
     return redirect('/home')
 
-
+# 上传文件
 def upload(request):
 
     print("request.method : ",request.method)
@@ -112,3 +112,43 @@ class Home(View):
         result = super(Home,self).dispatch(request,*args,**kwargs)
         print("after...")
         return result
+
+
+# 模板迭代测试
+# 1 迭代列表
+ITER_LIST = [
+    {'name':"kzw","age":18},
+    {'name':'zhangsan','age':26},
+    {'name':'lisi','age':20}
+]
+
+ITER_DIC={
+    "key1":"value1",
+    "key2": "value2",
+    "key3": "value3",
+    "key4": "value4",
+
+}
+ITER_DICTODIC = {
+    "1": {'name':'kzw','age':15,'email':'123@qq.com'},
+    "2": {'name': 'lisi', 'age': 16, 'email': '123@sina.com'},
+    "3": {'name': 'wangwu', 'age': 32, 'email': '123@163.com'},
+    "4": {'name': 'zhangsan', 'age': 24, 'email': '456@qq.com'}
+
+}
+
+def iter(request):
+    return render(request,"iter.html",
+                  {"iter_list":ITER_LIST,"iter_dic":ITER_DIC,"dictodic":ITER_DICTODIC})
+
+# 正则,参数有顺序
+def detail(request,nid,uid):
+    print("detail : ",nid,uid)
+    return render(request,"detail.html",{"d1":nid})
+
+# nid,uid参数的顺序可以改变
+def detailn(request,uid,nid):
+    print("uid:%s nid : %s"%(uid,nid))
+
+    return render(request,'detail.html',{"d2":nid})
+
