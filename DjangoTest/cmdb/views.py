@@ -144,11 +144,23 @@ def iter(request):
 # 正则,参数有顺序
 def detail(request,nid,uid):
     print("detail : ",nid,uid)
+    # from django.urls import reverse
+    # v = reverse('detail',args=(90,80))
+    # print("v : ",v)
     return render(request,"detail.html",{"d1":nid})
 
 # nid,uid参数的顺序可以改变
 def detailn(request,uid,nid):
     print("uid:%s nid : %s"%(uid,nid))
+    return render(request,'detail.html',{"d2" : nid})
 
-    return render(request,'detail.html',{"d2":nid})
+def othername(request,nid,uid):
+    print(request.path_info)
+    from django.urls import reverse
+    # 拼接
+    v = reverse("onamex",args=(90,80))
+    v2 = reverse("onamex",kwargs={'nid':11,'uid':33})
+    print("v : ",v)
+    print("v2 : ",v2)
+    return render(request,'iter.html')
 

@@ -28,6 +28,8 @@ urlpatterns = [
     # 正则匹配
     url(r'^detail-(\d+)-(\d+).html',views.detail),
 
-    url(r'^detailn-(?P<nid>\d+)-(?P<uid>\d+).html',views.detailn)
+    url(r'^detailn-(?P<nid>\d+)-(?P<uid>\d+).html',views.detailn),
+    url(r'^oname/(?P<nid>\d+)/(?P<uid>\d+)/',views.othername,name='onamex')
+
 
 ]
