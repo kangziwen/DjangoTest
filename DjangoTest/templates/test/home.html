@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/jquery.min.js" language="JavaScript"></script>
+</head>
+<body style="margin: 0">
+<div style="height: 48px;background-color: #dddddd"></div>
+<div>
+    <form action="/home" method="post">
+        <input type="text" name="username" placeholder="用户名"/>
+        <input type="text" name="email" placeholder="邮箱"/>
+        <input type="text" name="gender" placeholder="性别"/>
+        <input type="submit" value="添加">
+
+    </form>
+</div>
+<div>
+    <table>
+{#        <tr>#}
+{#            <td>用户名</td>#}
+{#            <td>性别</td>#}
+{#            <td>邮箱</td>#}
+{#            <td>操作</td>#}
+{#        </tr>#}
+
+        {% for row in user_list  %}
+        <tr>
+            <td>{{ row.username}}</td>
+            <td>{{ row.gender }}</td>
+            <td>{{ row.email }}</td>
+            <td>
+                <a href="/detail?nid={{ row.id }}">查看详情</a>
+                <a class="del" href="/del?nid={{ row.id }}" row-id="{{ row.id }}">删除</a>
+
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+  <div>
+        <form action="/del_host" method="post">
+            <input style="display: none" id="nid" type="text" name="nid" />
+            <p>
+                <input type="submit" />
+{#                <input type="botton" />#}
+            </p>
+        </form>
+    </div>
+<script>
+{#$('.del').click(function () {#}
+{#    console.log("del......")#}
+{#    var row_id = $(this).attr('row-id')#}
+{#    #}
+{#    $('#nid').val(row_id)#}
+{#})#}
+</script>
+</body>
+</html>
