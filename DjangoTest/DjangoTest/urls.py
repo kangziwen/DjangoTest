@@ -30,7 +30,7 @@ urlpatterns = [
 
     url(r'^detailn-(?P<nid>\d+)-(?P<uid>\d+).html',views.detailn),
     url(r'^oname/(?P<nid>\d+)/(?P<uid>\d+)/',views.othername,name='onamex'),
-    url(r'^db/',include('dbapp.urls'))
+    url(r'^dbapp/',include('dbapp.urls'))
 
 
 

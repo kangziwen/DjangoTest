@@ -14,6 +14,19 @@
     </p>
     <input type="submit"/>
 </form>
+<div>
+    {% if state == 1 %}
+    <span>{{ name }}登录成功</span>
+    {% elif state == 2 %}
+    <span>{{ name }}注册成功</span>
+    {% elif state == 3 %}
+    <span>{{ name }}登录密码错误</span>
+    {% else %}
+        <span>{{ name }}注册失败</span>
+    {% endif %}
+
+
+</div>
 
 </body>
 </html>

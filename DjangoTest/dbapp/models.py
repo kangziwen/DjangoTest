@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 '''
  根据类自动创建数据库表
-# app下的models.py	
+# app下的models.py	 建表
     python manage.py makemigrations
     python manage.py  migrate
 '''
